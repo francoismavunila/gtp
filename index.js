@@ -23,7 +23,7 @@ app.post('/', async (req, res) => {
     });
 
     const response = completion.choices[0].message.content;
-    res.send(response);
+    res.status(200).json({message:response});
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
