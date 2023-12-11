@@ -1,10 +1,11 @@
 const express = require('express');
 const OpenAI = require('openai');
+const cors = require('cors')
 require('dotenv').config();
 
 const app = express();
 const port = 3000;
-
+app.use(cors({credentials: true,origin: "*"}));
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
 app.use(express.json());
